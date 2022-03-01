@@ -1,0 +1,6 @@
+A,B,C,D,E
+AB->C
+D->DB
+B->E
+E->D
+ABD->ABCD

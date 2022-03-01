@@ -1,0 +1,17 @@
+get_attribute_closures
+get_essential_attr_closures
+get_prime_attributes
+get_superkeys
+get_candidate_keys
+get_fd_closure
+get_minimal_cover_from_fds
+get_all_minimal_covers_from_fds
+get_minimal_cover
+get_all_minimal_covers
+is_in_bcnf
+is_in_3nf
+is_in_2nf
+decomposition_algorithm
+is_bcnf_decomposition_dependency_preserving
+synthesis_algorithm
+is_3nf_synthesis_in_bcnf
