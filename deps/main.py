@@ -16,7 +16,7 @@ class FDUtils:
         has_processed_attributes = False
         for line in open(self.fd_filename, "r"):
             if not has_processed_attributes:
-                self.add_attributes(line.strip().split(","))
+                self.add_attributes([x for x in line.strip()])
                 has_processed_attributes = True
             else:
                 self.add_fd(line.strip())
