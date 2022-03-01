@@ -1,0 +1,5 @@
+ABCD
+A->>BC
+D->C
+RESULT
+A->C

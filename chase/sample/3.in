@@ -1,0 +1,6 @@
+ABCDEG
+AB->C
+AB->>E
+CD->>AB
+RESULT
+CD->>E

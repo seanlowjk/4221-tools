@@ -1,0 +1,7 @@
+ABCDEFG
+AB->C
+C->DE
+E->D
+F->G
+RESULT
+AB->>FG
