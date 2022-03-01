@@ -1,0 +1,4 @@
+ABCDE
+E->>AD Given
+B->D Given 
+E->D Coalescence 1,2

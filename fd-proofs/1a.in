@@ -1,0 +1,5 @@
+ABCDE
+A->B Given 
+AC->BC Augmentation 1 C
+AC->A Reflexivity
+AC->B Transitivity 3,1

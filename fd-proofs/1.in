@@ -1,0 +1,5 @@
+ABCDE
+BD->C Given
+AB->B Reflexivity
+ABD->BD Augmentation 2 D
+ABD->C Transitivity 3,1

@@ -1,2 +1,6 @@
 # 4221-tools
-Tools for CS4221 Quizzes
+
+Refer to this README for More Information on how to use these tools:
+
+1. `fd-proofs`: To use to prove the correctness of fd and mvd proofs using armstrong axioms 
+and other theorems. 

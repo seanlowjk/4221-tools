@@ -1,0 +1,8 @@
+ABCDE
+A->>BE Given 
+C->>D Given
+E->A Given
+A->>CD Complementation 1
+BCD->>BD Augmentation 2 BD
+E->>A Replication 3
+E->>BE Transitivity 6,1
