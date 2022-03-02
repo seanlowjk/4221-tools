@@ -87,6 +87,27 @@ def is_rule_valid(dep, rule, preds, aug, schema):
             mvd_rhs = schema.get_rule(int(preds[1]))
 
             return Rules.is_transitivity_mvd(dep, mvd_lhs, mvd_rhs)
+        elif rule == 'Union':
+            if len(preds) != 2:
+                raise Exception("Error In Handling: {}".format(dep, rule, preds))
+            mvd_lhs = schema.get_rule(int(preds[0]))
+            mvd_rhs = schema.get_rule(int(preds[1]))
+
+            return Rules.is_union_mvd(dep, mvd_lhs, mvd_rhs)
+        elif rule == 'Intersection':
+            if len(preds) != 2:
+                raise Exception("Error In Handling: {}".format(dep, rule, preds))
+            mvd_lhs = schema.get_rule(int(preds[0]))
+            mvd_rhs = schema.get_rule(int(preds[1]))
+
+            return Rules.is_intersection_mvd(dep, mvd_lhs, mvd_rhs)
+        elif rule == 'Difference':
+            if len(preds) != 2:
+                raise Exception("Error In Handling: {}".format(dep, rule, preds))
+            mvd_lhs = schema.get_rule(int(preds[0]))
+            mvd_rhs = schema.get_rule(int(preds[1]))
+
+            return Rules.is_difference_mvd(dep, mvd_lhs, mvd_rhs)
         elif rule == 'Replication':
             if len(preds) != 1:
                 raise Exception("Error In Handling: {}".format(dep, rule, preds))

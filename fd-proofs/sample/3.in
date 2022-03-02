@@ -1,0 +1,5 @@
+ABCDEG 
+CD->>AB Given 
+AB->>E Given 
+CD->>E Transitivity 1,2
+CD->>ABG Complementation 3

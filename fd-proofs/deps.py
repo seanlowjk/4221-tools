@@ -224,3 +224,21 @@ class Rules:
             and fd.lhs == mvd_init.lhs and fd.rhs == fd_init.rhs \
             and fd_init.rhs < mvd_init.rhs \
             and len(fd_init.lhs.intersection(mvd_init.rhs)) == 0
+
+    def is_union_mvd(mvd, mvd_lhs, mvd_rhs):
+        return type(mvd) == MVDep and type(mvd_lhs) == MVDep and type(mvd_rhs) == MVDep \
+            and mvd.lhs == mvd_lhs.lhs \
+            and mvd.lhs == mvd_rhs.lhs \
+            and mvd.rhs == mvd_lhs.rhs.union(mvd_rhs.rhs)
+
+    def is_intersection_mvd(mvd, mvd_lhs, mvd_rhs):
+        return type(mvd) == MVDep and type(mvd_lhs) == MVDep and type(mvd_rhs) == MVDep \
+            and mvd.lhs == mvd_lhs.lhs \
+            and mvd.lhs == mvd_rhs.lhs \
+            and mvd.rhs == mvd_lhs.rhs.intersection(mvd_rhs.rhs)
+
+    def is_difference_mvd(mvd, mvd_lhs, mvd_rhs):
+        return type(mvd) == MVDep and type(mvd_lhs) == MVDep and type(mvd_rhs) == MVDep \
+            and mvd.lhs == mvd_lhs.lhs \
+            and mvd.lhs == mvd_rhs.lhs \
+            and mvd.rhs == mvd_lhs.rhs.difference(mvd_rhs.rhs)

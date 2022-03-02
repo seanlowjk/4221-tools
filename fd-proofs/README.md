@@ -49,3 +49,12 @@ E->>AD Given
 B->D Given 
 E->D Coalescence 1,2
 ```
+
+```
+ABCDE
+A->>BC Given 
+A->>CD Given 
+A->>BCD Union 1,2
+A->>C Intersection 1,2 
+A->>B Difference 1,2 
+```
