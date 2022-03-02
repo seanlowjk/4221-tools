@@ -1,0 +1,9 @@
+ABCDE
+C->A
+D->DB 
+B->E 
+E->>AD 
+ABD->ABCD 
+B->D 
+RESULT 
+E->D
