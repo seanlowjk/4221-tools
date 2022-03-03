@@ -1,0 +1,5 @@
+ABCDE 
+C->B 
+E->>CD 
+RESULT 
+E->>D 
