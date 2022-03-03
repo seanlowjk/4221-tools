@@ -1,5 +1,6 @@
-ABCD
-A->>BC
-D->C
+ABCDEG
+AB->C
+AB->>E
+CD->>AB
 RESULT
-A->C
+CD->>E

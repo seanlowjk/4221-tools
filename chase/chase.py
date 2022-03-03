@@ -226,7 +226,8 @@ class Schema:
 
     def add_tuple(self, values=[]):
         tuple = Tuple(self.attributes, values)
-        self.tuples.append(tuple)
+        if tuple not in self.tuples:
+            self.tuples.append(tuple)
 
     def init(self):
         if len(self.tuples) == 0:
@@ -279,16 +280,18 @@ class Schema:
 
             for lhs in to_duplicate.keys():
                 to_duplicate_tuples = to_duplicate[lhs]
-                if len(to_duplicate_tuples) != 2:
+                if len(to_duplicate_tuples) <= 1:
                     continue
 
-                tup_1, tup_2 = to_duplicate_tuples
-                tup_3 = tup_1.copy()
-                tup_4 = tup_2.copy()
-                tup_3.set_val(dep.rhs, tup_2.get_val(dep.rhs))
-                tup_4.set_val(dep.rhs, tup_1.get_val(dep.rhs))
-                self.add_tuple(tup_3.values)
-                self.add_tuple(tup_4.values)
+                for i in range(0, len(to_duplicate_tuples)):
+                    for j in range(0, len(to_duplicate_tuples)):
+                        tup_1, tup_2 = to_duplicate_tuples[i], to_duplicate_tuples[j]
+                        tup_3 = tup_1.copy()
+                        tup_4 = tup_2.copy()
+                        tup_3.set_val(dep.rhs, tup_2.get_val(dep.rhs))
+                        tup_4.set_val(dep.rhs, tup_1.get_val(dep.rhs))
+                        self.add_tuple(tup_3.values)
+                        self.add_tuple(tup_4.values)
 
     def verify(self):
         if type(self.target) == FDep:
