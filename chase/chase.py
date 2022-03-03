@@ -173,7 +173,11 @@ class Tuple:
         return tuple(val)
 
     def set_val(self, attribute, vals):
-        attributes = sorted(set(attribute))
+        attributes = None
+        if sorted(set(attribute)) == attribute:
+            attributes = attribute
+        else: 
+            attributes = sorted(set(attribute))
         for i in range(0, len(attributes)):
             attr = attributes[i]
             val = vals[i]
@@ -303,11 +307,39 @@ class Schema:
 
             return True 
         else:
-            for tuple in self.tuples:
-                if min(tuple.values) == max(tuple.values):
-                    return True 
+            if len(self.target.lhs) == 0:
+                for tuple in self.tuples:
+                    if min(tuple.values) == max(tuple.values):
+                        return True 
 
-            return False
+                return False
+            else:
+                x, y, z = set(), set(), set()
+                attr_x = self.target.lhs 
+                attr_y = self.target.rhs 
+                attr_z = set(self.attributes).difference(self.target.lhs).difference(self.target.rhs)
+                attr_x, attr_y, attr_z = sorted(attr_x), sorted(attr_y), sorted(attr_z)
+                for tuple in self.tuples:
+                    x.add(tuple.get_val(attr_x))
+                    y.add(tuple.get_val(attr_y))
+                    z.add(tuple.get_val(attr_z))
+
+                print(attr_x, x)
+                print(attr_y, y)
+                print(attr_z, z)
+
+                for x_val in x:
+                    for y_val in y: 
+                        for z_val in z:
+                            tuple = Tuple(attributes=self.attributes, values=[1 for i in self.attributes])
+                            tuple.set_val(attr_x, x_val)
+                            tuple.set_val(attr_y, y_val)
+                            tuple.set_val(attr_z, z_val)
+
+                            if not tuple in self.tuples:
+                                return False
+
+                return True 
 
 
     def chase(self):
